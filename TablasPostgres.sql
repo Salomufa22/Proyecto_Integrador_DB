@@ -29,7 +29,7 @@ CREATE TABLE Producto
     nombre VARCHAR NOT NULL,
     marca VARCHAR NOT NULL,
     categoria_ID INT NOT NULL,
-    precio_unitario MONEY NOT NULL,
+    precio_unitario INT NOT NULL,
     FOREIGN KEY (categoria_ID) REFERENCES Categoria(ID_Categoria)
 );
 
