@@ -59,7 +59,7 @@ CREATE TABLE Cliente
 (
     ID_Cliente SERIAL PRIMARY KEY,
     nombre VARCHAR NOT NULL,
-    telefono INT NOT NULL
+    telefono VARCHAR NOT NULL
 );
 
 CREATE TABLE Orden
@@ -68,14 +68,14 @@ CREATE TABLE Orden
     cliente_ID INT NOT NULL,
     sucursal_ID INT NOT NULL,
     fecha DATE NOT NULL,
-    total MONEY NOT NULL,
+    total NUMERIC(10, 2) NOT NULL,
     FOREIGN KEY (cliente_ID) REFERENCES Cliente(ID_Cliente),
     FOREIGN KEY (sucursal_ID) REFERENCES Sucursal(ID_Sucursal)
 );
 
 CREATE TABLE Sucursal
 (
-    ID_Sucursal SERIAL PRIMARY KEY,
+    ID_Sucursal INT PRIMARY KEY,
     nombre VARCHAR NOT NULL,
     direccion VARCHAR NOT NULL
 );
