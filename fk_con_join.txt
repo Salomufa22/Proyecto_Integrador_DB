@@ -18,4 +18,4 @@ ADD FOREIGN KEY (sucursal_ID) REFERENCES Sucursal(ID_Sucursal);
 ALTER TABLE Item
 ADD FOREIGN KEY (orden_ID) REFERENCES Orden(ID_Orden);
 ALTER TABLE Item
-ADD FOREIGN KEY (producto_ID) REFERENCES Producto(ID_Producto)
+ADD FOREIGN KEY (producto_ID) REFERENCES Producto(ID_Producto);
