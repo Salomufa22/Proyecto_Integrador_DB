@@ -1,0 +1,21 @@
+--Producto -> Categoria
+ALTER TABLE Producto
+ADD FOREIGN KEY (categoria_ID) REFERENCES Categoria(ID_Categoria);
+
+--Stock -> Sucursal & Producto
+ALTER TABLE Stock 
+ADD FOREIGN KEY (sucursal_ID) REFERENCES Sucursal(ID_Sucursal);
+ALTER TABLE Stock
+ADD FOREIGN KEY (producto_ID) REFERENCES Producto(ID_Producto);
+
+--Orden -> Cliente & Sucursal
+ALTER TABLE Orden
+ADD FOREIGN KEY (cliente_ID) REFERENCES Cliente(ID_Cliente);
+ALTER TABLE Orden
+ADD FOREIGN KEY (sucursal_ID) REFERENCES Sucursal(ID_Sucursal);
+
+--Item -> Orden & Producto
+ALTER TABLE Item
+ADD FOREIGN KEY (orden_ID) REFERENCES Orden(ID_Orden);
+ALTER TABLE Item
+ADD FOREIGN KEY (producto_ID) REFERENCES Producto(ID_Producto)
