@@ -2,20 +2,20 @@
 
 -- DROP DATABASE IF EXISTS "Proyecto_Integrador_DB";
 
-CREATE DATABASE "Proyecto_Integrador_DB"
-    WITH
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'Spanish_Colombia.1252'
-    LC_CTYPE = 'Spanish_Colombia.1252'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1
-    IS_TEMPLATE = False;
+--CREATE DATABASE "Proyecto_Integrador_DB"
+    --WITH
+    --OWNER = postgres
+   -- ENCODING = 'UTF8'
+    --LC_COLLATE = 'Spanish_Colombia.1252'
+    --LC_CTYPE = 'Spanish_Colombia.1252'
+   -- TABLESPACE = pg_default
+  --  CONNECTION LIMIT = -1
+    --IS_TEMPLATE = False;
 
-COMMENT ON DATABASE "Proyecto_Integrador_DB"
-    IS 'Base de datos creada para la plaraforma ADA School.
-Creada por: Laura Salome Murcia Farfan 
-Cohorte 38';
+--COMMENT ON DATABASE "Proyecto_Integrador_DB"
+  --  IS 'Base de datos creada para la plaraforma ADA School.
+--Creada por: Laura Salome Murcia Farfan 
+--Cohorte 38';
 
 CREATE TABLE Categoria
 (
