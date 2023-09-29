@@ -1,0 +1,133 @@
+# Agregando datos a la DB
+async def bulk_insert_data():
+    ##await Tortoise.generate_schemas()
+    insertCategoria = [
+        Categoria(id=1, nombre='Electrónicos'),
+        Categoria(id=2, nombre='Ropa'),
+        Categoria(id=3, nombre='Hogar'),
+        Categoria(id=4, nombre='Deportes'),
+        Categoria(id=5, nombre='Juguetes'),
+    ]
+    await Categoria.bulk_create(insertCategoria)
+    Producto = [
+        Producto(id=1, nombre='Televisor', marca='Sony', categoria_id=1, precio_unitario=1000),
+        Producto(id=2, nombre='Laptop', marca='HP', categoria_id=1, precio_unitario=800),
+        Producto(id=3, nombre='Camisa', marca='Zara', categoria_id=2, precio_unitario=50),
+        Producto(id=4, nombre='Pantalón', marca='Levis', categoria_id=2, precio_unitario=70),
+        Producto(id=5, nombre='Sartén', marca='T-fal', categoria_id=3, precio_unitario=30),
+        Producto(id=6, nombre='Toalla', marca='Cannon', categoria_id=3, precio_unitario=20),
+        Producto(id=7, nombre='Pelota', marca='Nike', categoria_id=4, precio_unitario=15),
+        Producto(id=8, nombre='Raqueta', marca='Wilson', categoria_id=4, precio_unitario=50),
+        Producto(id=9, nombre='Muñeca', marca='Barbie', categoria_id=5, precio_unitario=25),
+        Producto(id=10, nombre='Carro', marca='Hot Wheels', categoria_id=5, precio_unitario=10),
+        ]
+    await Categoria.bulk_create(Producto)
+    Sucursal = [
+        Sucursal(id_sucursal=1, nombre='Sucursal A', direccion='Calle 1'),
+        Sucursal(id_sucursal=2, nombre='Sucursal B', direccion='Calle 2'),
+        Sucursal(id_sucursal=3, nombre='Sucursal C', direccion='Calle 3'),
+        ]
+    await Sucursal.bulk_create(Sucursal)
+    cliente = [
+        Cliente(id_cliente=1, nombre='Juan', telefono='1234567890'),
+        Cliente(id_cliente=2, nombre='María', telefono='0987654321'),
+        Cliente(id_cliente=3, nombre='Pedro', telefono='5555555555'),
+    ]
+    await Cliente.bulk_create(cliente)
+    Orden = [
+        Orden(id=1, cliente_id=1, sucursal_id=3, fecha='2023-06-12', total=600.00),
+        Orden(id=2, cliente_id=2, sucursal_id=1, fecha='2023-06-12', total=705.00),
+        Orden(id=3, cliente_id=3, sucursal_id=3, fecha='2023-06-12', total=7000.00),
+        Orden(id=4, cliente_id=2, sucursal_id=3, fecha='2023-06-12', total=12200.00),
+        Orden(id=5, cliente_id=3, sucursal_id=3, fecha='2023-06-12', total=115.00),
+        Orden(id=6, cliente_id=1, sucursal_id=1, fecha='2023-06-12', total=690.00),
+        Orden(id=7, cliente_id=1, sucursal_id=1, fecha='2023-06-12', total=950.00),
+        Orden(id=8, cliente_id=3, sucursal_id=3, fecha='2023-06-12', total=8050.00),
+        Orden(id=9, cliente_id=3, sucursal_id=2, fecha='2023-06-12', total=485.00),
+        Orden(id=10, cliente_id=2, sucursal_id=1, fecha='2023-06-12', total=8725.00),
+        Orden(id=11, cliente_id=2, sucursal_id=3, fecha='2023-06-12', total=315.00),
+        Orden(id=12, cliente_id=3, sucursal_id=1, fecha='2023-06-12', total=16110.00),
+        Orden(id=13, cliente_id=3, sucursal_id=3, fecha='2023-06-12', total=975.00),
+        Orden(id=14, cliente_id=3, sucursal_id=3, fecha='2023-06-12', total=1490.00),
+        Orden(id=15, cliente_id=1, sucursal_id=1, fecha='2023-06-12', total=365.00),
+    ]
+    await Orden.bulk_create(Orden)
+    Stock = [
+        Stock(id=1, sucursal_id=1, producto_id=1, cantidad=65),
+        Stock(id=2, sucursal_id=1, producto_id=2, cantidad=71),
+        Stock(id=3, sucursal_id=1, producto_id=3, cantidad=8),
+        Stock(id=4, sucursal_id=1, producto_id=4, cantidad=42),
+        Stock(id=5, sucursal_id=1, producto_id=5, cantidad=61),
+        Stock(id=6, sucursal_id=1, producto_id=6, cantidad=14),
+        Stock(id=7, sucursal_id=1, producto_id=7, cantidad=70),
+        Stock(id=8, sucursal_id=1, producto_id=8, cantidad=66),
+        Stock(id=9, sucursal_id=1, producto_id=9, cantidad=13),
+        Stock(id=10, sucursal_id=1, producto_id=10, cantidad=68),
+        Stock(id=11, sucursal_id=2, producto_id=1, cantidad=14),
+        Stock(id=12, sucursal_id=2, producto_id=2, cantidad=67),
+        Stock(id=13, sucursal_id=2, producto_id=3, cantidad=74),
+        Stock(id=14, sucursal_id=2, producto_id=4, cantidad=32),
+        Stock(id=15, sucursal_id=2, producto_id=5, cantidad=75),
+        Stock(id=16, sucursal_id=2, producto_id=6, cantidad=37),
+        Stock(id=17, sucursal_id=2, producto_id=7, cantidad=14),
+        Stock(id=18, sucursal_id=2, producto_id=8, cantidad=42),
+        Stock(id=19, sucursal_id=2, producto_id=9, cantidad=51),
+        Stock(id=20, sucursal_id=2, producto_id=10, cantidad=41),
+        Stock(id=21, sucursal_id=3, producto_id=1, cantidad=59),
+        Stock(id=22, sucursal_id=3, producto_id=2, cantidad=98),
+        Stock(id=23, sucursal_id=3, producto_id=3, cantidad=52),
+        Stock(id=24, sucursal_id=3, producto_id=4, cantidad=85),
+        Stock(id=25, sucursal_id=3, producto_id=5, cantidad=31),
+        Stock(id=26, sucursal_id=3, producto_id=6, cantidad=17),
+        Stock(id=27, sucursal_id=3, producto_id=7, cantidad=13),
+        Stock(id=28, sucursal_id=3, producto_id=8, cantidad=18),
+        Stock(id=29, sucursal_id=3, producto_id=9, cantidad=76),
+        Stock(id=30, sucursal_id=3, producto_id=10, cantidad=1),
+    ]
+    await Stock.bulk_create(Stock)
+    Item = [
+        Item(id=1, orden_id=1, producto_id=9, cantidad=7, monto_venta=100.00),
+        Item(id=2, orden_id=1, producto_id=8, cantidad=8, monto_venta=500.00),
+        Item(id=6, orden_id=2, producto_id=9, cantidad=3, monto_venta=225.00),
+        Item(id=7, orden_id=2, producto_id=5, cantidad=9, monto_venta=240.00),
+        Item(id=8, orden_id=2, producto_id=5, cantidad=10, monto_venta=180.00),
+        Item(id=9, orden_id=2, producto_id=6, cantidad=3, monto_venta=60.00),
+        Item(id=11, orden_id=3, producto_id=1, cantidad=9, monto_venta=7000.00),
+        Item(id=16, orden_id=4, producto_id=1, cantidad=4, monto_venta=5000.00),
+        Item(id=17, orden_id=4, producto_id=2, cantidad=8, monto_venta=7200.00),
+        Item(id=21, orden_id=5, producto_id=6, cantidad=2, monto_venta=100.00),
+        Item(id=22, orden_id=5, producto_id=7, cantidad=3, monto_venta=15.00),
+        Item(id=26, orden_id=6, producto_id=4, cantidad=9, monto_venta=140.00),
+        Item(id=27, orden_id=6, producto_id=9, cantidad=4, monto_venta=250.00),
+        Item(id=28, orden_id=6, producto_id=3, cantidad=2, monto_venta=300.00),
+        Item(id=31, orden_id=7, producto_id=5, cantidad=8, monto_venta=300.00),
+        Item(id=32, orden_id=7, producto_id=9, cantidad=6, monto_venta=250.00),
+        Item(id=33, orden_id=7, producto_id=8, cantidad=2, monto_venta=400.00),
+        Item(id=36, orden_id=8, producto_id=1, cantidad=6, monto_venta=2000.00),
+        Item(id=37, orden_id=8, producto_id=1, cantidad=10, monto_venta=6000.00),
+        Item(id=38, orden_id=8, producto_id=3, cantidad=2, monto_venta=50.00),
+        Item(id=41, orden_id=9, producto_id=8, cantidad=9, monto_venta=200.00),
+        Item(id=42, orden_id=9, producto_id=3, cantidad=3, monto_venta=150.00),
+        Item(id=43, orden_id=9, producto_id=7, cantidad=2, monto_venta=105.00),
+        Item(id=44, orden_id=9, producto_id=10, cantidad=5, monto_venta=30.00),
+        Item(id=46, orden_id=10, producto_id=9, cantidad=9, monto_venta=225.00),
+        Item(id=47, orden_id=10, producto_id=1, cantidad=7, monto_venta=8000.00),
+        Item(id=48, orden_id=10, producto_id=3, cantidad=6, monto_venta=500.00),
+        Item(id=51, orden_id=11, producto_id=7, cantidad=5, monto_venta=90.00),
+        Item(id=52, orden_id=11, producto_id=9, cantidad=8, monto_venta=125.00),
+        Item(id=53, orden_id=11, producto_id=3, cantidad=9, monto_venta=100.00),
+        Item(id=56, orden_id=12, producto_id=2, cantidad=7, monto_venta=7200.00),
+        Item(id=57, orden_id=12, producto_id=1, cantidad=5, monto_venta=8000.00),
+        Item(id=58, orden_id=12, producto_id=6, cantidad=9, monto_venta=160.00),
+        Item(id=59, orden_id=12, producto_id=8, cantidad=9, monto_venta=350.00),
+        Item(id=60, orden_id=12, producto_id=8, cantidad=4, monto_venta=400.00),
+        Item(id=61, orden_id=13, producto_id=9, cantidad=4, monto_venta=175.00),
+        Item(id=62, orden_id=13, producto_id=2, cantidad=6, monto_venta=800.00),
+        Item(id=66, orden_id=14, producto_id=1, cantidad=5, monto_venta=1000.00),
+        Item(id=67, orden_id=14, producto_id=4, cantidad=7, monto_venta=490.00),
+        Item(id=71, orden_id=15, producto_id=9, cantidad=6, monto_venta=125.00),
+        Item(id=72, orden_id=15, producto_id=5, cantidad=9, monto_venta=240.00),
+    ]
+    await Item.bulk_create(Item)
+    #if __name__ == '__main__':
+#    run_async(bulk_insert_data())
